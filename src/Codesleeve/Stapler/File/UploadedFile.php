@@ -11,7 +11,7 @@ class UploadedFile extends \Symfony\Component\HttpFoundation\File\UploadedFile
 
 	public function isMimeType($extensions)
 	{
-		$mimes = Config::get('stapler:mimes');
+		$mimes = Config::get('stapler::mimes');
 		$mime = $this->getMimeType();
 
 		// The MIME configuration file contains an array of file extensions and
