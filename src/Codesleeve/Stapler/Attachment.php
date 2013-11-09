@@ -375,7 +375,7 @@ class Attachment
 
 		foreach ($this->queuedForWrite as $style)
 		{
-      if ($style->value && $this->uploadedFile->isImage()) {
+      if ($style->value && $this->uploadedFile->canManipulate()) {
 				$imageProcessor = App::make($this->image_processing_library);
 				$resizer = new File\Image\Resizer($imageProcessor);
 				$file = $resizer->resize($this->uploadedFile, $style);
