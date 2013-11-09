@@ -6,7 +6,7 @@ class UploadedFile extends \Symfony\Component\HttpFoundation\File\UploadedFile
 {
 	public function canManipulate()
 	{
-		return ($this->image() || $this->isVide() || $this->isPdf());
+		return ($this->isImage() || $this->isVideo() || $this->isPdf());
 	}
 
 	public function isMimeType($extensions)
