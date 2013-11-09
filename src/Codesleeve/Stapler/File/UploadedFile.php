@@ -13,7 +13,7 @@ class UploadedFile extends \Symfony\Component\HttpFoundation\File\UploadedFile
 	{
 		$mimes = Config::get('stapler:mimes');
 		$mime = $this->getMimeType();
-		
+
 		// The MIME configuration file contains an array of file extensions and
 		// their associated MIME types.  We will loop through each extension and look for the MIME type.
 		foreach ($extensions as $extension)
@@ -37,11 +37,17 @@ class UploadedFile extends \Symfony\Component\HttpFoundation\File\UploadedFile
 		$extensions = ['jpg', 'jpeg', 'gif', 'png'];
 		return $this->isMimeType($extensions);
 	}
-	
+
 	public function isVideo()
 	{
 		$extensions = ['mpeg', 'mpg', 'mpe', 'qt', 'mov', 'avi', 'movie', 'mp4'];
 		return $this->isMimeType($extensions);
-	}	
+	}
+
+	public function isPdf()
+	{
+		$extensions = ['pdf'];
+		return $this->isMimeType($extensions);
+	}
 
 }
