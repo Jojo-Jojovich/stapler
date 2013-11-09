@@ -377,7 +377,8 @@ class Attachment
 		{
       if ($style->value && $this->uploadedFile->canManipulate()) {
 				$imageProcessor = App::make($this->image_processing_library);
-				$resizer = new File\Image\Resizer($imageProcessor);
+      	// Put logic here to choose proper "resizer" for different file types
+      	$resizer = ResizerFactory::getResizer($this->uploadedFile, $imageProcessor);
 				$file = $resizer->resize($this->uploadedFile, $style);
 			}
 			else {

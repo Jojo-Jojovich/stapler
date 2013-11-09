@@ -1,9 +1,9 @@
-<?php namespace Codesleeve\Stapler\File\Image;
+<?php namespace Codesleeve\Stapler\File;
 
 use Imagine\Image\Box;
 use Imagine\Image\Point;
 
-class ImageResizer extends Resizer
+class Resizer
 {
 
 	/**
@@ -31,6 +31,7 @@ class ImageResizer extends Resizer
 	 */
 	public function resize($file, $style)
 	{
+		var_dump($file->getClientOriginalName());
 		$filePath = tempnam(sys_get_temp_dir(), 'STP') . '.' . $file->getClientOriginalName();
 		list($width, $height, $option) = $this->parseStyleDimensions($style);
 		$method = "resize" . ucfirst($option);
